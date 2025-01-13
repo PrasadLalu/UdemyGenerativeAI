@@ -1,5 +1,5 @@
 import os
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 
 import streamlit as st
 import openai
@@ -18,8 +18,7 @@ prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-def generate_response(question, llm, api_key, temperatures, max_tokens):
-    openai.api_key = api_key
+def generate_response(question, llm, temperatures, max_tokens):
     model = ChatOpenAI(model=llm)
     
     output_parser = StrOutputParser()
@@ -33,7 +32,6 @@ st.title("Enhanced Q&A Chatbot with OpenAI")
 
 # Sidebar setting
 st.sidebar.title("Setting")
-api_key = st.sidebar.text_input("Enter your OpenAI API Key", type="password")
 
 # OpenAI models
 model = st.sidebar.selectbox("Select OpenAI model: ", ["gpt-4", "gpt-4o", "gpt-4-turbo"])
@@ -47,5 +45,7 @@ st.write("Go ahead and ask any question")
 user_input = st.text_input("You: ")
 
 if user_input:
-    response = generate_response(user_input, model, api_key, temperatures, max_tokens)
+    response = generate_response(user_input, model, temperatures, max_tokens)
     st.write(response)
+else:
+    st.write("Please write your query.")
