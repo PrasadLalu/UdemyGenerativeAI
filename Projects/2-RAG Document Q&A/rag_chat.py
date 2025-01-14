@@ -64,7 +64,7 @@ if api_key:
         # Split and create document embeddings
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=500)
         splits = text_splitter.split_documents(documents)
-        vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings)
+        vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings,  persist_directory="./chroma_db")
         retriever = vectorstore.as_retriever()  
         
         contextualize_system_prompt = (
