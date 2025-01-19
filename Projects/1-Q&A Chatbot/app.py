@@ -19,7 +19,7 @@ prompt = ChatPromptTemplate.from_messages(
 )
 
 def generate_response(question, llm, temperatures, max_tokens):
-    model = ChatOpenAI(model=llm)
+    model = ChatOpenAI(model=llm, temperature=temperatures, max_tokens=max_tokens)
     
     output_parser = StrOutputParser()
     chain = prompt | model | output_parser
