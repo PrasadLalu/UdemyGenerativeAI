@@ -29,3 +29,6 @@ youtube-transcript-api
 numexpr
 crewai
 crewai-tools
+pinecone-text
+pinecone-client
+pinecone-notebooks
