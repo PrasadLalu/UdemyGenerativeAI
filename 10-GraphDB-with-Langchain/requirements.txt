@@ -1,0 +1,8 @@
+# neo4j==5.14
+ipykernel
+python-dotenv
+langchain
+langchain-neo4j
+langchain_openai
+langchain_groq
+langchain_community
