@@ -32,3 +32,4 @@ crewai-tools
 pinecone-text
 pinecone-client
 pinecone-notebooks
+langchain-google-genai
